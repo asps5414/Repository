@@ -1,0 +1,275 @@
+/* App.css */
+
+.App {
+  position: relative;
+}
+
+.loading-cover {
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-icon {
+  border: 16px solid #b0ffe1;
+  border-top: 16px solid #00c2bcb4;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+.loading-text {
+  font-size: 32px;
+  color: rgb(255, 232, 244);
+  font-family: 'Arial', sans-serif; 
+  text-align: center;
+  position: absolute;
+  top: 70%; 
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  padding-top: 60px;   
+}
+.container {
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row; /* 將主軸方向設定為水平方向 */
+    align-items: stretch; /* 讓子元素都平均分配容器的高度 */
+}
+
+
+.left,
+.right {
+    flex: 1; /* 讓左右列平均分配剩餘的空間 */
+}
+.top,
+.footer {
+    flex: 1 0 100%; /* 讓 top 和 footer 在一列中，並占滿整列 */
+}
+.left {
+
+  order: 1;
+  text-align: left;
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 50px;
+  padding-left: 15%;
+
+}
+.top {
+  width: 100%;
+  justify-content: center;  
+  
+  /* height: 3px;            */
+}
+.dropdown {
+  display: flex;
+  justify-content: flex-start;  /* 這裡讓它的內容對齊至左邊 */
+  gap: 10px;
+}
+.dropdown, .card {
+  text-align: left;
+}
+.right {
+  order: 2;
+  
+}
+
+.footer {
+  order: 3;
+}
+.styled-select {
+  font-size: 16px;
+  border: none;
+  color: #333;
+  border-radius: 130px;
+  padding: 10px 10px;
+  margin: 5px 0;
+  background: #f8f8f8;
+  width: 200px;  /* Or whatever width you want */
+}
+
+.styled-select:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgb(175, 7, 158);
+}
+@media (max-width: 900px) {
+  .right {
+    display: none;
+  }
+}
+
+.cardContainer {
+  display: flex;
+  align-items: start;
+  margin: 10px;
+}
+
+.location {
+  margin-right: 20px;
+  white-space: nowrap;
+}
+.card {
+  display: flex;
+  flex-direction: row;
+  /* align-items: left; */
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  width: 900px;
+  height: 150px;
+  transition: box-shadow .3s;   
+
+}
+.form-label {
+  display: inline-block;
+  margin-right: 10px;
+  
+
+}
+.footer {
+  background-color: #7b7b7ba1;  
+  color: white;
+  height: 60px;
+  display: flex;
+  align-items: left;
+  padding: 20px; 
+}
+.card:hover {
+  box-shadow: 0 0 11px rgba(33,33,33,.2); 
+}
+.card img {
+  width:180px;
+  height:120px;
+  margin-right: 20px;
+  position: relative;
+  display: block;
+  transform: scale(1);
+  object-fit: cover;
+  transition: all 0.3s ease-in-out;
+  
+}
+
+.card img::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  transition: all 0.3s ease-in-out;
+  
+}
+
+.card img:hover {
+  transform: scale(1.3);
+  
+}
+
+.card img:hover::after {
+  background: rgba(0,0,0,0);
+}.card .text {
+  
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.card .text h2, .card .text p {
+  margin: 0;
+}
+.card .location {
+  width: 100px;
+  margin-right: 20px;
+}
+.card .content {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.pagination-button {
+  margin: 5px;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 10%;
+  background-color: #7b7b7b;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, .2);
+  font-size: 14px;
+}
+
+.pagination-button:hover {
+  background-color: #5a5a5a;
+}
+
+.pagination-button:focus {
+  background-color: #810040;
+  outline: none;
+}
+.pagination-text {
+  text-align: left;
+  padding: 5px;
+}
+.pagination-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.pagination-buttons {
+  display: flex;
+  padding-right: 0px;
+  /* gap: 10px; */
+}
+.sticky-image {
+  position: -webkit-sticky;  /* 為了支援 Safari */
+  position: sticky;
+  top: 0%;  /* 根據化面模型調整此值，讓圖像在滾動到期望的位置時固定 */
+}
+
+.card-wrapper {
+  position: relative; /* 为子元素定位做准备 */
+  /* 以下属性看实际需要调整 */
+  display: flex;
+  align-items: flex-start; /* 根据实际需要调整 */
+  
+}
+.city-town-cord {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* 依據你的實際需求調整此屬性 */
+}
+.city-name-card {
+  background-color: rgba(1, 84, 173, 0.687);
+  color: white;
+  padding: 5px;
+  margin-top: 15px;
+  margin-left: -20px;
+  /* position properties */
+  position: absolute; /* 將 city-name-card 設定為絕對定位 */
+  top: 0; /* 將城市名稱元件定位在父元件的上方 */
+  left: 0; /* 設定城市名稱元件的左側以符合你的設計 */
+}
+.town-name-card {
+  writing-mode: vertical-rl; /* 讓文字直書 */
+  background-color: rgb(254, 254, 254);
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  margin-top: 60px;
+
+}
